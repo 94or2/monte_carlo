@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'carlo/style.css' %}" />
+
+{% if latest_group_list %}
+    <ul>
+        {% for group in latest_group_list %}
+            <li><a href="{% url 'carlo:detail' group.id %}">{{group.group_name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No group are available.</p>
+{% endif %}
